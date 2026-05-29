@@ -1,0 +1,16 @@
+# ==============================================================================
+# PASO 3: ESTADÍSTICOS DESCRIPTIVOS
+# ==============================================================================
+
+# Estadísticos descriptivos
+descriptivos <- describe(df)
+
+# Mostrar descriptivos
+descriptivos
+
+# Exportar descriptivos
+write.csv(
+  descriptivos,
+  "outputs/descriptivos.csv",
+  row.names = TRUE
+)
