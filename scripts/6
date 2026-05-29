@@ -1,0 +1,35 @@
+# ==============================================================================
+# PASO 6: REGRESIÓN LINEAL MÚLTIPLE
+# ==============================================================================
+
+# ------------------------------------------------------------------------------
+# JUSTIFICACIÓN
+# ------------------------------------------------------------------------------
+
+# Se utiliza una regresión lineal múltiple debido a que permite
+# analizar el efecto simultáneo de variables macroeconómicas
+# sobre las ventas minoristas de bienes durables.
+
+# ------------------------------------------------------------------------------
+# MODELO PRINCIPAL
+# ------------------------------------------------------------------------------
+
+modelo_final <- lm(
+  Ventas ~
+    tasa_intervencion +
+    InflacionIPC +
+    TRM +
+    `Índice de confianza del consumidor (ICC)` +
+    dummy_dic +
+    dummy_pan,
+  data = df
+)
+
+# Resultados modelo
+summary(modelo_final)
+
+# Coeficientes
+coef(modelo_final)
+
+# Intervalos confianza
+confint(modelo_final)
