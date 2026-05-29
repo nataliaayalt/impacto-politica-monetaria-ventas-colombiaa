@@ -1,0 +1,40 @@
+# ==============================================================================
+# PASO 4: MATRIZ DE CORRELACIONES
+# ==============================================================================
+
+# Selección variables numéricas
+variables_cor <- df %>%
+  select(
+    Ventas,
+    tasa_intervencion,
+    InflacionIPC,
+    TRM,
+    `Índice de confianza del consumidor (ICC)`,
+    dummy_dic,
+    dummy_pan
+  )
+
+# Matriz de correlación
+cor_matrix <- cor(variables_cor)
+
+# Mostrar matriz
+cor_matrix
+
+# Exportar matriz
+write.csv(
+  cor_matrix,
+  "outputs/correlaciones.csv"
+)
+
+# Visualización correlaciones
+corrplot(
+  cor_matrix,
+  method = "color",
+  type = "upper",
+  addCoef.col = "black",
+  tl.col = "black",
+  tl.cex = 0.8,       # Reducir un poco el tamaño de las etiquetas de variable
+  number.cex = 0.7,   # Reducir un poco el tamaño de los coeficientes numéricos
+  tl.srt = 45,         # GIRAR LAS ETIQUETAS SUPERIORES 45 GRADOS (Clave!)
+  tl.offset = 1.0     # Ajustar el desplazamiento de las etiquetas
+)
