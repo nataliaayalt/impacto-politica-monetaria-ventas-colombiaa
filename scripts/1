@@ -1,0 +1,32 @@
+# ==============================================================================
+# PROYECTO FINAL - ANALÍTICA DE NEGOCIOS
+# Impacto de las Tasas de Interés y la Inflación sobre las
+# Ventas Minoristas en Colombia (2019-2024)
+# ==============================================================================
+
+# ==============================================================================
+# PASO 1: CARGAR LIBRERÍAS Y BASE DE DATOS
+# ==============================================================================
+install.packages(c("tidyverse","lubridate","readxl", "lmtest", "car","psych","corrplot","broom","GGally"))
+
+# Librerías principales
+library(tidyverse)
+library(lubridate)
+library(lmtest)
+library(car)
+library(psych)
+library(corrplot)
+library(broom)
+library(GGally)
+library(readxl)
+
+
+setwd("C:/Users/aulasingenieria/Desktop/analitica")
+getwd()
+
+# Importar base de datos
+df <- read_excel("analitica.xlsx")
+
+# Convertir fecha
+df <- df %>%
+  mutate(Fecha = as.Date(Fecha))
