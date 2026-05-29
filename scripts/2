@@ -1,0 +1,24 @@
+# ==============================================================================
+# PASO 2: EXPLORACIÓN Y VALIDACIÓN DE DATOS
+# ==============================================================================
+
+# Estructura de la base
+str(df)
+
+# Resumen estadístico
+summary(df)
+
+# Nombres de variables
+colnames(df)
+
+# Primeras observaciones
+head(df)
+
+# Valores faltantes
+colSums(is.na(df))
+
+# Eliminar NA si existen
+df <- na.omit(df)
+
+# Número de observaciones
+nrow(df)
