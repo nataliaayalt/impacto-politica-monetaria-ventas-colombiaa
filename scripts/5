@@ -1,0 +1,64 @@
+# ==============================================================================
+# PASO 5: VISUALIZACIONES
+# ==============================================================================
+
+# ------------------------------------------------------------------------------
+# Gráfico principal
+# ------------------------------------------------------------------------------
+
+grafico_principal <- ggplot(df, aes(x = Fecha)) +
+  
+  geom_rect(
+    aes(
+      xmin = min(Fecha[dummy_pan == 1]),
+      xmax = max(Fecha[dummy_pan == 1]),
+      ymin = -Inf,
+      ymax = Inf
+    ),
+    fill = "gray80",
+    alpha = 0.15
+  ) +
+  
+  geom_line(
+    aes(
+      y = Ventas,
+      color = "Ventas"
+    ),
+    size = 1.2
+  ) +
+  
+  geom_line(
+    aes(
+      y = tasa_intervencion * 10,
+      color = "Tasa de Intervención"
+    ),
+    size = 1,
+    linetype = "dashed"
+  ) +
+  
+  scale_y_continuous(
+    name = "Ventas Minoristas",
+    sec.axis = sec_axis(
+      ~./10,
+      name = "Tasa de Intervención (%)"
+    )
+  ) +
+  
+  labs(
+    title = "Política Monetaria y Ventas Minoristas en Colombia",
+    subtitle = "Periodo 2019-2024",
+    x = "Fecha",
+    color = "Variables"
+  ) +
+  
+  theme_minimal()
+
+grafico_principal
+
+# Exportar gráfico
+ggsave(
+  "images/grafico_principal.png",
+  plot = grafico_principal,
+  width = 10,
+  height = 6
+)
