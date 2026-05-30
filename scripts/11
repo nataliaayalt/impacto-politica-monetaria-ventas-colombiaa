@@ -1,0 +1,11 @@
+# PASO 11: INTERPRETACIÓN ECONÓMICA ESPERADA
+# ==============================================================================
+
+# Signos esperados:
+#
+# tasa_intervencion -> negativo
+# InflacionIPC      -> negativo
+# TRM               -> negativo
+# ICC               -> positivo
+# dummy_dic         -> positivo
+# dummy_pan         -> negativo
