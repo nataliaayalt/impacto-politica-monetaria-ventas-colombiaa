@@ -1,0 +1,20 @@
+# PASO 12: EXPORTACIÓN DE RESULTADOS
+# ==============================================================================
+
+# Exportar modelo principal
+resultados_modelo <- tidy(modelo_final)
+
+write.csv(
+  resultados_modelo,
+  "outputs/resultados_modelo.csv",
+  row.names = FALSE
+)
+
+# Exportar modelo interacción
+resultados_interaccion <- tidy(modelo_interaccion)
+
+write.csv(
+  resultados_interaccion,
+  "outputs/resultados_interaccion.csv",
+  row.names = FALSE
+)
