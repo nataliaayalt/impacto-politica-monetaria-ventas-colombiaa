@@ -1,0 +1,8 @@
+# PASO 9: EVALUACIÓN DEL MODELO
+# ==============================================================================
+
+# R cuadrado
+summary(modelo_final)$r.squared
+
+# R cuadrado ajustado
+summary(modelo_final)$adj.r.squared
