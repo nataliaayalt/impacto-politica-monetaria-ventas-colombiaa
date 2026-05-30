@@ -1,0 +1,22 @@
+# ==============================================================================
+# PASO 7: MODELO CON INTERACCIÓN
+# ==============================================================================
+
+# Crear interacción inflación-tasas
+df$interaccion <- df$tasa_intervencion * df$InflacionIPC
+
+# Modelo interacción
+modelo_interaccion <- lm(
+  Ventas ~
+    tasa_intervencion +
+    InflacionIPC +
+    interaccion +
+    TRM +
+    Índice de confianza del consumidor (ICC) +
+    dummy_dic +
+    dummy_pan,
+  data = df
+)
+
+# Resultados interacción
+summary(modelo_interaccion)
