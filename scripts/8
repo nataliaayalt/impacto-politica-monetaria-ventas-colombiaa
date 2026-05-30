@@ -1,0 +1,4 @@
+# PASO 8: COMPARACIÓN ENTRE MODELOS
+# ==============================================================================
+
+anova(modelo_final, modelo_interaccion)
